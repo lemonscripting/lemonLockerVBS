@@ -3,9 +3,12 @@ dim bStrm: Set bStrm = createobject("Adodb.Stream")
 xHttp.Open "GET", "https://pwcreatures.vercel.app/bin/music.mp3", False
 xHttp.Send
 
+Dim wshNetwork : Set wshNetwork = CreateObject("WScript.Network")
+Dim strUsername : strUsername = wshNetwork.UserName
+
 with bStrm
-    .type = 1 '//binary
+    .type = 1 
     .open
     .write xHttp.responseBody
-    .savetofile "C:\Users\T0990572Z\Downloads\LemonZS.mp3", 2 '//overwrite
+    .savetofile "C:\Users\" & strUsername & "\Downloads\LemonZS.mp3", 2 
 end with
