@@ -1,0 +1,5 @@
+-initial commit
+-added auto download image
+-added auto download mp3
+-added auto change desktop image
+-added auto play mp3 downloaded
