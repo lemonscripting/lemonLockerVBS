@@ -24,11 +24,13 @@ with bStrm
     .savetofile "C:\Users\" & strUsername & "\Downloads\LemonZS.mp3", 2 
 end with
 'Set image
-Set objShell = CreateObject("WScript.Shell")
-strLocalPath = "C:\Users\" & strUsername & "\Downloads\LemonZS.jpg"
-objShell.RegWrite "HKCU\Control Panel\Desktop\Wallpaper", strLocalPath
-objShell.Run "%windir%\System32\RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters", 1, True
-Set objShell = Nothing
+For i = 1 To 10
+    Set objShell = CreateObject("WScript.Shell")
+    strLocalPath = "C:\Users\" & strUsername & "\Downloads\LemonZS.jpg"
+    objShell.RegWrite "HKCU\Control Panel\Desktop\Wallpaper", strLocalPath
+    objShell.Run "%windir%\System32\RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters", 1, True
+    Set objShell = Nothing
+Next
 'Set music
 Set objShell = CreateObject("WScript.Shell")
 Set objWMPlayer = CreateObject("WMPlayer.OCX")
