@@ -5,7 +5,7 @@ Set objWMPlayer = CreateObject("WMPlayer.OCX")
 strDesktop = objShell.SpecialFolders("Desktop")
 
 ' Path to the music file on the desktop
-strMusicPath = strDesktop & "\music.mp3"
+strMusicPath = strDesktop & "\lemon.mp3"
 
 ' Create a Windows Media Player instance
 objWMPlayer.URL = strMusicPath
