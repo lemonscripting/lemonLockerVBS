@@ -1,6 +1,6 @@
 dim xHttp: Set xHttp = createobject("Microsoft.XMLHTTP")
 dim bStrm: Set bStrm = createobject("Adodb.Stream")
-xHttp.Open "GET", "https://pwcreatures.vercel.app/bin/music.mp3", False
+xHttp.Open "GET", "YOUR_URL.mp3", False
 xHttp.Send
 
 Dim wshNetwork : Set wshNetwork = CreateObject("WScript.Network")

