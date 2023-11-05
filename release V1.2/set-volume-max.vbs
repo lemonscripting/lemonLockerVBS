@@ -1,8 +1,9 @@
-Set objShell = CreateObject("WScript.Shell")
-Do
-    ' Set the system volume to maximum
-    objShell.Run "nircmd.exe setsysvolume 65535", 0, True
-    
-    ' Wait for 100 milliseconds
-    WScript.Sleep 100
-Loop
+set oShell = CreateObject("WScript.Shell") 
+oShell.run"%SystemRoot%\System32\SndVol.exe" 'Runs The Master Volume App.
+WScript.Sleep 1500 'Waits For The Program To Open
+oShell.SendKeys("{PGUP}") 'Turns Up The Volume 20, If It Is Muted Then It Will Unmute It
+oShell.SendKeys("{PGUP}") 'Turns Up The Volume 20
+oShell.SendKeys("{PGUP}") 'Turns Up The Volume 20
+oShell.SendKeys("{PGUP}") 'Turns Up The Volume 20
+oShell.SendKeys("{PGUP}") 'Turns Up The Volume 20
+oShell.SendKeys"%{F4}"  ' ALT F4 To Exit The App.
