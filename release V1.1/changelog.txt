@@ -1,0 +1,3 @@
+-fixed desktop image not change
+-added error handler for changeing image
+-used creation of subfolders to avoid antivirus detection

