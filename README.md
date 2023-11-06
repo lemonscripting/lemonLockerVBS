@@ -34,7 +34,20 @@ By using this script, you agree to **take full responsibility** for your actions
 - Fixed desktop image not change🛠️
 - Added error handler for changing image🚧
 - Used creation of subfolders to avoid antivirus detection📁
-- 
+
+# V1.2
+```
+keywords:
+explorer  > disable Explorer.exe🛠️
+disable   > disable Taskmgr.exe🛠️
+music     > plays music in background🛠️
+wallpaper > changes device wallpaper🛠️
+volume    > locks the volume at 100%🛠️
+```
+- Added explorer + disable version🚀
+- Added volume + music + explorer + disable version🎵
+- Added volume + music + wallpaper + disable version🖼️
+
 ## License
 ```
 BSD 3-Clause License
