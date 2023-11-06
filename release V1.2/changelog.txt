@@ -3,10 +3,11 @@ explorer  - disable Explorer.exe
 disable   - disable Taskmgr.exe
 music     - plays music in background
 wallpaper - changes device wallpaper
+volume    - locks the volume at 100%
 
 -added explorer + disable version
--added music + explorer + disable version
--added music + wallpaper + disable version
+-added volume + music + explorer + disable version
+-added volume + music + wallpaper + disable version
 
 future updates:
 add init:delete all downloaded files if present
