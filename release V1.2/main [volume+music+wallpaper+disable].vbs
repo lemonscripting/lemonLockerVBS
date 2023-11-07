@@ -1,6 +1,7 @@
 'Set default volume to max
 set oShell = CreateObject("WScript.Shell") 
 oShell.run"%SystemRoot%\System32\SndVol.exe"
+WScript.Sleep 1000
 oShell.SendKeys("{PGUP}") 
 oShell.SendKeys("{PGUP}") 
 oShell.SendKeys("{PGUP}") 
